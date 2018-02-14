@@ -1,0 +1,52 @@
+package automation;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class HomePageLogin {
+	
+	public static void main(String args[]) throws Exception
+	{
+	
+		WebElement element;
+		WebDriver driver;
+		String url = "http://rexaserver:19088/rexaproduct/";
+		
+		//@BeforeMethod
+	//	public void beforeMethod() throws Exception
+	//	{
+		     System.setProperty("webdriver.gecko.driver", "D:\\MyComputer\\RENO_AUTOMATION\\geckodriver.exe");
+			 driver = new FirefoxDriver();
+			 driver.navigate().to(url);
+			 driver.manage().window().maximize();
+			 Thread.sleep(10000L);
+	//	}
+		
+	//	@Test
+	//	public void testLogin() throws Exception
+	//	{
+			// driver.findElement(By.xpath("//input[@id='cred_userid_inputtext']")).sendKeys("rexa.admin@renovite.com");
+	//driver.findElement(By.id("cred_userid_inputtext")).sendKeys("rexa.admin@renovite.com");
+//	driver.findElement(By.id("cred_password_inputtext")).sendKeys("Rex@@dm!n2016");
+//	driver.findElement(By.id("submit")).click();
+	
+			Locators.emailAddress().sendKeys("rexa.admin@renovite.com");
+     		Locators.password().sendKeys("Rex@@dm!n2016");
+			Locators.login().click();
+			 Thread.sleep(10000);
+	//	}
+		
+		
+	//	@AfterMethod
+	//	public void afterMethod()
+	//	{
+			driver.close();
+	//	}
+	}
+
+}
